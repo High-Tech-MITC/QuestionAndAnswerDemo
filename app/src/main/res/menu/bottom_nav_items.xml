@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:title="@string/questions" android:id="@+id/questionsFragment" android:icon="@drawable/ic_baseline_home_24"/>
+    <item android:title="@string/likedquestion" android:id="@+id/likedQuestionFragment" android:icon="@drawable/ic_baseline_school_24"/>
+    <item android:title="@string/placeholder" android:id="@+id/noting" />
+    <item android:title="@string/myquestions" android:id="@+id/myQuestionFragments" android:icon="@drawable/ic_baseline_question_answer_24"/>
+    <item android:title="@string/setting" android:id="@+id/settingFragment" android:icon="@drawable/ic_baseline_settings_24"/>
+</menu>

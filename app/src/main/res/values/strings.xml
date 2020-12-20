@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">QuestionDemo</string>
+    <string name="questions">Questions</string>
+    <string name="myquestions">MyQuestions</string>
+    <string name="setting">Setting</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="likedquestion">LikedQuestion</string>
+    <string name="type">type</string>
+    <string name="answers">Answers</string>
+    <string name="views">views</string>
+    <string name="username">username</string>
+
+    <string name="question">Question</string>
+    <string name="placeholder">PlaceHolder</string>
+    <string name="swipe_up_down_to_check_more">swipe up/down to check more</string>
+
+</resources>

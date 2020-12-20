@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "915288581974",
+    "project_id": "questionandanswerdemo-d0af7",
+    "storage_bucket": "questionandanswerdemo-d0af7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915288581974:android:4a6acccf0c280a9a2058f7",
+        "android_client_info": {
+          "package_name": "com.example.questionandanswerdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915288581974-9vt45rccr53jmd9geg62ckcmv36u42d4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoWm-pHc_fMqhcZH4mWbeUjVCyH7jHdAM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915288581974-9vt45rccr53jmd9geg62ckcmv36u42d4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,36 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="darkappthemes" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/grey</item>
+        <item name="colorPrimaryDark">@color/dark_grey</item>
+        <item name="colorAccent">@color/grey_accent</item>
+        <item name="colorSecondary">@color/black</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="bottomNavigationStyle">@color/grey</item>
+        <item name="android:windowBackground">@drawable/background_dark</item>
+    </style>
+
+    <style name="questionStyle">
+        <item name="android:textColor">@color/dark_questionTextColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:lines">8</item>
+    </style>
+
+    <style name="answerStyle">
+        <item name="android:textColor">@color/dark_answerTextColor</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:lines">8</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="cardView">
+        <item name="cardCornerRadius">33dp</item>
+        <item name="cardBackgroundColor">@color/colorAccent</item>
+        <item name="android:textColor">@color/dark_questionTextColor</item>
+    </style>
+</resources>

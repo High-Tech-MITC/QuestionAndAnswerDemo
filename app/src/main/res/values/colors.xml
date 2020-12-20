@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#192047</color>
+    <color name="primaryVariant">#171C3A</color>
+    <color name="colorAccent">#00416a</color>
+    <color name="secondaryColor">#33408E</color>
+    <color name="searchBar">#F6AADF</color>
+    <color name="grey">#2A2E42</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="dark_grey">#1B1D29</color>
+    <color name="grey_accent">#242839</color>
+    <color name="lightBottomNav">#0322D5</color>
+    <color name="darkBottomNav">#1d254c</color>
+    <color name="dark_answerTextColor">#b7fff6</color>
+    <color name="dark_questionTextColor">#c0c9fa</color>
+    <color name="light_answerTextColor">#00554b</color>
+    <color name="light_questionTextColor">#061253</color>
+</resources>

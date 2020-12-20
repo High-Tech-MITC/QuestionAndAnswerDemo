@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:background="@drawable/round_custom"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/loginId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="join us"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ru.dimorinny.floatingtextbutton.FloatingTextButton
+        android:id="@+id/floatingGoogle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:floating_background_color="@android:color/background_light"
+        app:floating_right_icon="@drawable/ic_icons8_google"
+        app:floating_title="sign in using google"
+        app:floating_title_color="@color/black"
+        android:layout_marginTop="5dp" />
+
+    <ru.dimorinny.floatingtextbutton.FloatingTextButton
+        android:id="@+id/floatingFacebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:floating_background_color="@android:color/holo_blue_dark"
+        app:floating_right_icon="@drawable/ic_icons8_facebook"
+        app:floating_title="sign in using facebook"
+        app:floating_title_color="@color/black"
+        android:layout_marginTop="5dp"
+  />
+
+    <ru.dimorinny.floatingtextbutton.FloatingTextButton
+        android:id="@+id/floatingGithub"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:floating_background_color="@color/white"
+        app:floating_right_icon="@drawable/ic_icons8_github"
+        app:floating_title="sign in using github"
+        app:floating_title_color="@color/black"
+       />
+
+</LinearLayout>
