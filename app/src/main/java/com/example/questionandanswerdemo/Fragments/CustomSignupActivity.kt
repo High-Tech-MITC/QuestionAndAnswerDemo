@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import com.example.questionandanswerdemo.MainActivity
 import com.example.questionandanswerdemo.R
 import com.facebook.*
 import com.facebook.login.LoginManager
@@ -93,7 +94,8 @@ class CustomSignupActivity : DialogFragment(){
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         firebaseAuth.signInWithCredential(credential).addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                dismiss()
+                dialog!!.dismiss()
+                startActivity(Intent(requireContext(),MainActivity::class.java))
             } else {
                 Log.w("Error", "signInWithCredential:failure", task.exception)
                 // ...

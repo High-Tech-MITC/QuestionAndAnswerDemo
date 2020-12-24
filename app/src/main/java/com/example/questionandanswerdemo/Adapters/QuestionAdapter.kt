@@ -2,11 +2,13 @@ package com.example.questionandanswerdemo.Adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.core.os.bundleOf
 import androidx.navigation.NavController
@@ -14,7 +16,11 @@ import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.questionandanswerdemo.R
+import com.example.questionandanswerdemo.ViewDetails.AskQuestionDetail
 import com.example.questionandanswerdemo.ViewDetails.QuestionView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import com.google.firebase.ktx.Firebase
 
 
 import com.squareup.picasso.Picasso
@@ -44,6 +50,55 @@ class QuestionAdapter(var list:List<QuestionView>, var context: Context): Recycl
         holder.cardView.setOnClickListener {
             val bundle= bundleOf("questionid" to questionview,"userquestionid" to questionid )
             it.findNavController().navigate(R.id.action_questionsFragment_to_viewQuestionFragment,bundle)
+        }
+        holder.likes.setOnClickListener {
+            Toast.makeText(it.context,"Value",Toast.LENGTH_LONG).show()
+          /*  val uidofquestion=list[position].uid
+            val currentuser=FirebaseAuth.getInstance().currentUser!!.uid
+            val firebasedata=FirebaseDatabase.getInstance().reference.child("Question").child(currentuser).child("LikedQuestion").orderByChild("question").equalTo(questionview)
+            firebasedata.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    for (keysnapshot in snapshot.children) {
+                        if (keysnapshot.exists()) {
+                            Log.d("value", "onDataChange: ${keysnapshot.key} ")
+                        }else{
+                        val addfirebase=FirebaseDatabase.getInstance().reference.child("Question").child(currentuser).child("LikedQuestion")
+                        val keyforliked=addfirebase.push().key
+                        val addquestionliked=AskQuestionDetail(questionview!!
+                        ,ServerValue.TIMESTAMP,list[position].userName!!,list[position].userimage!!,list[position].type!!,list[position].email!!,questionid,list[position].answers,list[position].views,
+                        list[position].likes)
+                        addfirebase.child(keyforliked!!).setValue(addquestionliked).addOnCompleteListener {
+                            if (it.isSuccessful){
+                                val Firebasestatus=FirebaseDatabase.getInstance().reference.child("Question").child(questionid).orderByChild("question").equalTo(questionview)
+                                Firebasestatus.addListenerForSingleValueEvent(object:ValueEventListener{
+                                    override fun onDataChange(snapshot: DataSnapshot) {
+                                        for (snap in snapshot.children){
+                                            val keyofquestion=snap.key
+                                            val classquestion=snap.getValue(QuestionView::class.java)
+                                            val initlikes=classquestion!!.likes
+                                            val firebase2=FirebaseDatabase.getInstance().reference.child("Question").child(questionid).child(keyofquestion!!).child("likes")
+                                            val addlikes=initlikes+1
+                                            firebase2.setValue(addlikes)
+                                        }
+                                    }
+
+                                    override fun onCancelled(error: DatabaseError) {
+                                        TODO("Not yet implemented")
+                                    }
+                                })
+                            }
+                        }
+                        }
+
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
+
+           */
         }
     }
 

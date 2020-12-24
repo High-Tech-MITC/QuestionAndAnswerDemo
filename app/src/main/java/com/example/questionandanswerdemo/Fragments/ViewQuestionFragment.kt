@@ -68,6 +68,7 @@ class ViewQuestionFragment:Fragment(R.layout.view_question_fragment) {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (snap in snapshot.children) {
                     val questionView=snap.getValue(QuestionView::class.java)
+                    val intvalue=questionView!!.answers
                     val key=snap.key
                     Picasso.get().load(questionView!!.userimage).transform(CropCircleTransformation()).fit().into(userimage)
                     username.text=questionView.userName
@@ -96,6 +97,9 @@ class ViewQuestionFragment:Fragment(R.layout.view_question_fragment) {
                                 if (it.isSuccessful){
                                     Toast.makeText(requireContext(),"Answer Added", Toast.LENGTH_LONG).show()
                                     dialog.dismiss()
+                                    val answedadded=intvalue+1
+                                    val firebasedatabseaddanswer=FirebaseDatabase.getInstance().reference.child("Question").child(useruid).child(key!!).child("answers")
+                                    firebasedatabseaddanswer.setValue(answedadded)
                                 }else{
                                     Toast.makeText(requireContext(),"ERROR:${it.exception.toString()}", Toast.LENGTH_LONG).show()
                                     dialog!!.dismiss()
@@ -127,6 +131,7 @@ class ViewQuestionFragment:Fragment(R.layout.view_question_fragment) {
                 TODO("Not yet implemented")
             }
         })
+
     }
 
 }
