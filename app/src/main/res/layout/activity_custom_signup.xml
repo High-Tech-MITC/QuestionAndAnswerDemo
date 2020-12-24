@@ -29,17 +29,13 @@
         app:floating_title="sign in using google"
         app:floating_title_color="@color/black"
         android:layout_marginTop="5dp" />
-
-    <ru.dimorinny.floatingtextbutton.FloatingTextButton
-        android:id="@+id/floatingFacebook"
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/fb_login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:floating_background_color="@android:color/holo_blue_dark"
-        app:floating_right_icon="@drawable/ic_icons8_facebook"
-        app:floating_title="sign in using facebook"
-        app:floating_title_color="@color/black"
-        android:layout_marginTop="5dp"
-  />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp" />
 
     <ru.dimorinny.floatingtextbutton.FloatingTextButton
         android:id="@+id/floatingGithub"
