@@ -15,7 +15,12 @@
         android:name="com.example.questionandanswerdemo.Fragments.QuestionsFragment"
         android:label="QuestionsFragment"
         tools:layout="@layout/question_fragment"
-        />
+        >
+        <action
+            android:id="@+id/action_questionsFragment_to_viewQuestionFragment"
+            app:destination="@id/viewQuestionFragment"
+            />
+    </fragment>
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.example.questionandanswerdemo.Fragments.SettingFragment"
@@ -25,7 +30,12 @@
         android:id="@+id/viewQuestionFragment"
         android:name="com.example.questionandanswerdemo.Fragments.ViewQuestionFragment"
         android:label="ViewQuestionFragment"
-        tools:layout="@layout/view_question_fragment"/>
+        tools:layout="@layout/view_question_fragment">
+        <argument android:name="questionid"
+            android:defaultValue="None"/>
+        <argument android:name="userquestionid"
+            android:defaultValue="none"/>
+    </fragment>
     <fragment
         android:id="@+id/likedQuestionFragment"
         android:name="com.example.questionandanswerdemo.Fragments.LikedQuestionFragment"

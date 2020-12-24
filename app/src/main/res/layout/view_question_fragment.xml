@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
-        app:contentScrim="?attr/colorPrimary"
+        app:title="@string/question"
+        app:collapsedTitleGravity="bottom"
         app:layout_scrollFlags="scroll|exitUntilCollapsed">
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,10 +36,11 @@
                 android:textColor="@color/white"
                 android:fontFamily="sans-serif-medium"/>
             <TextView
+                android:layout_margin="14dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/questionStyle"
-                android:id="@+id/view_question"/>
+                android:id="@+id/view_questionof"/>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -45,7 +48,7 @@
                 android:layout_gravity="end"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="15dp"
-                tools:ignore="UseCompoundDrawables">
+                tools:ignore="RtlCompat,UseCompoundDrawables">
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -54,34 +57,41 @@
                        android:layout_gravity="center"
                         android:text="@string/username"
                         android:textColor="@color/white"
+                    android:id="@+id/view_username"
                         android:fontFamily="sans-serif-condensed-light"/>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/image_holder"
-                    android:id="@+id/userimage"
+                    android:id="@+id/view_userimage"
                     tools:ignore="ContentDescription" />
             </LinearLayout>
         </LinearLayout>
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:layout_collapseMode="pin"
-            android:background="@color/colorAccent"
-            android:backgroundTint="@android:color/transparent"
-            app:navigationIcon="?attr/homeAsUpIndicator"
-            tools:targetApi="lollipop" />
     </com.google.android.material.appbar.CollapsingToolbarLayout>
 </com.google.android.material.appbar.AppBarLayout>
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/appbar"
-        android:layout_marginTop="12dp">
+        android:layout_height="match_parent"
+        android:id="@+id/nestedscroll"
+        android:layout_marginTop="5dp"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/recyle_answer"/>
     </androidx.core.widget.NestedScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
+        android:id="@+id/addyouranswer"
+        android:padding="5dp"
+        app:fabSize="normal"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/ic_baseline_question_answer_24"
+        android:background="#03A9F4"
+        tools:targetApi="m"
+        tools:ignore="ContentDescription" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
