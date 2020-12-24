@@ -16,4 +16,5 @@
     <color name="dark_questionTextColor">#c0c9fa</color>
     <color name="light_answerTextColor">#00554b</color>
     <color name="light_questionTextColor">#061253</color>
+    <color name="main_bg_color">#00416a</color>
 </resources>
