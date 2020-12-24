@@ -3,6 +3,8 @@
     <string name="questions">Questions</string>
     <string name="myquestions">MyQuestions</string>
     <string name="setting">Setting</string>
+    <string name="facebook_app_id">841278586497002</string>
+    <string name="fb_login_protocol_scheme">fb841278586497002</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="likedquestion">LikedQuestion</string>
@@ -14,5 +16,7 @@
     <string name="question">Question</string>
     <string name="placeholder">PlaceHolder</string>
     <string name="swipe_up_down_to_check_more">swipe up/down to check more</string>
+    <string name="facebookName">profile name</string>
+    <string name="facebookUid">user id</string>
 
 </resources>

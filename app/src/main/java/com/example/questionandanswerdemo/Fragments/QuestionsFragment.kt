@@ -26,4 +26,5 @@ class QuestionsFragment:Fragment(R.layout.question_fragment) {
             profileimage.visibility=View.INVISIBLE
         }
     }
+
 }

@@ -21,6 +21,7 @@ class QuestionAdapter(var list:List<QuestionView>, var context: Context): Recycl
         return ViewHolder(view)
     }
 
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.question.text= list[position].question
         holder.questiontype.text=list[position].type
