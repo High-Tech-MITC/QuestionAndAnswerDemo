@@ -53,7 +53,7 @@ class QuestionAdapter(var list:List<QuestionView>, var context: Context): Recycl
         }
         holder.likes.setOnClickListener {
             Toast.makeText(it.context,"Value",Toast.LENGTH_LONG).show()
-          /*  val uidofquestion=list[position].uid
+            val uidofquestion=list[position].uid
             val currentuser=FirebaseAuth.getInstance().currentUser!!.uid
             val firebasedata=FirebaseDatabase.getInstance().reference.child("Question").child(currentuser).child("LikedQuestion").orderByChild("question").equalTo(questionview)
             firebasedata.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -98,7 +98,7 @@ class QuestionAdapter(var list:List<QuestionView>, var context: Context): Recycl
                 }
             })
 
-           */
+
         }
     }
 
