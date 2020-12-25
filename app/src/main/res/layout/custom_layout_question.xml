@@ -5,31 +5,41 @@
     android:layout_height="wrap_content"
     android:background="@android:color/transparent"
     android:backgroundTint="@android:color/transparent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:targetApi="lollipop">
 <androidx.cardview.widget.CardView
     android:layout_width="300dp"
-    android:layout_height="420dp"
+    android:layout_height="380dp"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    android:id="@+id/cardview"
+    android:id="@+id/cardviewquestion"
     app:cardCornerRadius="22dp"
-    app:cardBackgroundColor="#EEFFFFFF">
+    app:cardBackgroundColor="#F3F2F2">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/qsign"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_margin="5dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginBottom="4dp"
             android:elevation="0dp"
-            tools:targetApi="lollipop"
-            tools:ignore="ContentDescription" />
+            android:src="@drawable/qsign"
+            tools:ignore="ContentDescription"
+            tools:targetApi="lollipop" />
+
         <LinearLayout
+
             android:id="@+id/linear1"
             android:elevation="8dp"
             android:layout_alignParentTop="true"
@@ -46,9 +56,11 @@
             android:textColor="#B20E2EE4"
             android:id="@+id/questionType"
             android:layout_marginTop="15dp"
-            tools:ignore="RtlSymmetry" />
+            tools:ignore="RtlSymmetry"
+            android:paddingLeft="15dp" />
 
             <TextView
+                android:padding="4dp"
                 android:id="@+id/questionview"
                 style="@style/questionStyle"
                 android:layout_width="match_parent"
@@ -57,30 +69,55 @@
                 android:ellipsize="end"
                 android:text="@string/myquestions" />
         </LinearLayout>
-        <LinearLayout
+        <RelativeLayout
             android:layout_below="@+id/linear1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="9dp"
-            android:weightSum="4"
+            android:layout_marginTop="3dp"
+            android:divider="@color/black"
+            android:showDividers="middle"
             >
             <TextView
                 android:layout_marginStart="12dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.1"
                 android:text="@string/answers"
+                android:textColor="@color/black"
                 android:textSize="16sp"
-                android:id="@+id/answersprovided"/>
+                android:layout_alignParentStart="false"
+                android:id="@+id/answersprovided"
+                android:layout_marginLeft="12dp"
+                android:drawablePadding="3dp"
+                android:layout_alignParentLeft="false"
+                android:gravity="center"
+                android:textAlignment="center"
+                app:drawableLeftCompat="@drawable/ic_baseline_mark_chat_read_24" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:textColor="@color/black"
                 android:text="@string/views"
+                android:layout_toRightOf="@id/answersprovided"
+                android:layout_marginStart="12dp"
                 android:textSize="16sp"
-                android:id="@+id/viewofquestion"/>
-        </LinearLayout>
+                android:id="@+id/viewofquestion"
+                android:layout_marginLeft="12dp"
+                android:drawablePadding="2dp"
+                app:drawableLeftCompat="@drawable/ic_baseline_remove_red_eye_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Likes"
+                android:id="@+id/likescount"
+                android:layout_toRightOf="@id/viewofquestion"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                app:drawableLeftCompat="@drawable/ic_baseline_star_24" />
+        </RelativeLayout>
         <LinearLayout
             android:elevation="8dp"
             android:layout_width="wrap_content"
@@ -90,7 +127,8 @@
             android:layout_alignParentStart="true"
             android:layout_margin="10dp"
             tools:ignore="RelativeOverlap"
-            tools:targetApi="lollipop">
+            tools:targetApi="lollipop"
+            android:layout_alignParentLeft="true">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -101,11 +139,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginStart="10dp">
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/username"
+                    android:textColor="@color/black"
                     android:textSize="17sp"
                     android:id="@+id/questionby"/>
                 <TextView

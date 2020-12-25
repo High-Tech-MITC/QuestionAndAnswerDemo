@@ -41,9 +41,10 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'com.google.firebase:firebase-analytics:18.0.0'
-    implementation 'com.google.firebase:firebase-auth:20.0.1'
-    implementation 'com.google.firebase:firebase-database:19.6.0'
+    implementation platform('com.google.firebase:firebase-bom:26.2.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-database-ktx'
     implementation 'com.github.dimorinny:floating-text-button:0.0.4'
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
@@ -53,7 +54,7 @@ dependencies {
     implementation 'com.littlemango:stacklayoutmanager:1.0.5'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
     implementation 'android.arch.lifecycle:extensions:1.1.1'
-    //noinspection LifecycleAnnotationProcessorWithJava8
+    implementation 'com.facebook.android:facebook-android-sdk:5.15.3'
     annotationProcessor 'android.arch.lifecycle:compiler:1.1.1'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'de.hdodenhof:circleimageview:3.0.0'
@@ -61,5 +62,5 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
+
 }

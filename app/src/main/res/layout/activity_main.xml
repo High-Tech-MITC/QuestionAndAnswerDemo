@@ -29,7 +29,7 @@
         android:backgroundTint="@color/colorAccent"
         android:visibility="visible"
         android:id="@+id/addquestion"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="10dp"
         android:src="@drawable/ic_baseline_add_24"
         tools:targetApi="lollipop"
         tools:ignore="ContentDescription" />

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import com.example.questionandanswerdemo.MainActivity
 import com.example.questionandanswerdemo.R
 import com.facebook.*
 import com.facebook.login.LoginManager
@@ -33,8 +34,8 @@ class CustomSignupActivity : DialogFragment(){
         savedInstanceState: Bundle?
     ): View {
         val rootView:View = inflater.inflate(R.layout.activity_custom_signup, container, false)
-        var floatingTextButtongoogle:FloatingTextButton=rootView.findViewById(R.id.floatingGoogle)
-        var facebookLogBtn:LoginButton = rootView.findViewById(R.id.fb_login_button)
+        val floatingTextButtongoogle:FloatingTextButton=rootView.findViewById(R.id.floatingGoogle)
+        val facebookLogBtn:LoginButton = rootView.findViewById(R.id.fb_login_button)
         facebookAuth = FirebaseAuth.getInstance()
         callbackManager = CallbackManager.Factory.create()
         facebookLogBtn.setPermissions("email", "public_profile")
@@ -47,16 +48,12 @@ class CustomSignupActivity : DialogFragment(){
 
                 override fun onCancel() {
                     Log.d(TAG, "facebook:onCancel")
-                    // [START_EXCLUDE]
-                    updateUI(null)
-                    // [END_EXCLUDE]
+
                 }
 
                 override fun onError(error: FacebookException) {
                     Log.d(TAG, "facebook:onError", error)
-                    // [START_EXCLUDE]
-                    updateUI(null)
-                    // [END_EXCLUDE]
+
                 }
             })
         }
@@ -97,7 +94,8 @@ class CustomSignupActivity : DialogFragment(){
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         firebaseAuth.signInWithCredential(credential).addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                dismiss()
+                dialog!!.dismiss()
+                startActivity(Intent(requireContext(),MainActivity::class.java))
             } else {
                 Log.w("Error", "signInWithCredential:failure", task.exception)
                 // ...
@@ -105,50 +103,22 @@ class CustomSignupActivity : DialogFragment(){
             }
         }
     }
-    public override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = facebookAuth.currentUser
-        updateUI(currentUser)
-    }
     private fun handleFacebookAccessToken(token: AccessToken) {
         Log.d(TAG, "handleFacebookAccessToken:$token")
-        // [START_EXCLUDE silent]
-        // [END_EXCLUDE]
 
         val credential = FacebookAuthProvider.getCredential(token.token)
         facebookAuth.signInWithCredential(credential)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
-                    val user = facebookAuth.currentUser
-                    updateUI(user)
+                    dismiss()
                 } else {
-                    // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    Toast.makeText(activity?.applicationContext, "Authentication failed.",
+                    Toast.makeText(requireContext(), "Authentication failed.",
                         Toast.LENGTH_SHORT).show()
-                    updateUI(null)
                 }
             }
     }
-    fun signOut() {
-        facebookAuth.signOut()
-        LoginManager.getInstance().logOut()
-
-        updateUI(null)
-    }
-
-    private fun updateUI(user: FirebaseUser?) {
-        if (user != null) {
-            var displayName: String? = user.displayName
-            var fbUserId: String? = user.uid
-        } else {
-            return
-        }
-    }
-
 
     companion object {
         private const val TAG = "FacebookLogin"
