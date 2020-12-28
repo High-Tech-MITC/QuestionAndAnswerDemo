@@ -41,6 +41,7 @@
                 android:layout_height="wrap_content"
                 style="@style/questionStyle"
                 android:id="@+id/view_questionof"/>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -37,8 +37,7 @@ class QuestionsFragment:Fragment(R.layout.question_fragment),DataLoadListener {
         val firebaseAuth=FirebaseAuth.getInstance()
         recyleQuestion=view.findViewById(R.id.recyler_question)
         recyleQuestion.hasFixedSize()
-        val stackLayoutManager=StackLayoutManager(StackLayoutManager.ScrollOrientation.BOTTOM_TO_TOP,3)
-        stackLayoutManager.setItemOffset(50)
+        val stackLayoutManager=StackLayoutManager(StackLayoutManager.ScrollOrientation.TOP_TO_BOTTOM,3)
         recyleQuestion.layoutManager=stackLayoutManager
         questionViewModel=ViewModelProvider(requireActivity()).get(QuestionViewModel::class.java)
         questionViewModel.init(requireActivity())
