@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <com.google.android.material.appbar.AppBarLayout
-    android:id="@+id/appbar"
+    android:id="@+id/appbar1"
     android:background="@drawable/backgroundforviewquestion"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
         app:title="@string/question"
+        android:id="@+id/collapsingtool"
         app:collapsedTitleGravity="bottom"
         app:layout_scrollFlags="scroll|exitUntilCollapsed">
         <LinearLayout
@@ -41,7 +42,48 @@
                 android:layout_height="wrap_content"
                 style="@style/questionStyle"
                 android:id="@+id/view_questionof"/>
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="15dp"
+    android:paddingStart="12dp"
+    android:layout_marginLeft="15dp"
+    android:paddingLeft="12dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Answers"
+        android:id="@+id/answer_view"
+        android:drawablePadding="5dp"
+        android:textColor="@color/white"
+        tools:ignore="RtlCompat"
+        app:drawableEndCompat="@drawable/ic_baseline_mark_chat_read_24" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/views"
+        android:textColor="@color/white"
+        android:layout_toRightOf="@id/answer_view"
+        android:id="@+id/views_view"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:drawablePadding="5dp"
+        app:drawableEndCompat="@drawable/ic_baseline_remove_red_eye_24"
+        app:drawableRightCompat="@drawable/ic_baseline_remove_red_eye_24" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Like"
+        android:id="@+id/likes_view"
+        android:drawablePadding="5dp"
+        android:layout_toRightOf="@id/views_view"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:textColor="@color/white"
+        app:drawableRightCompat="@drawable/ic_baseline_thumb_up_alt_24"
+        android:layout_toEndOf="@id/views_view"
+        app:drawableTint="@color/white" />
+</RelativeLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -69,6 +111,12 @@
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.appbar.CollapsingToolbarLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_collapseMode="pin"
+        android:id="@+id/toolbar"
+        />
 </com.google.android.material.appbar.AppBarLayout>
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

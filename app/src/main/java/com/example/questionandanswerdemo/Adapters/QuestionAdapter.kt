@@ -2,6 +2,7 @@ package com.example.questionandanswerdemo.Adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,9 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.amulyakhare.textdrawable.TextDrawable
+import com.amulyakhare.textdrawable.util.ColorGenerator.MATERIAL
+import com.example.questionandanswerdemo.HelperClass.ProfileImage
 import com.example.questionandanswerdemo.MainActivity
 import com.example.questionandanswerdemo.R
 import com.example.questionandanswerdemo.ViewDetails.AskQuestionDetail
@@ -27,7 +31,7 @@ import com.google.firebase.ktx.Firebase
 
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
-import java.util.HashMap
+import java.util.*
 
 class QuestionAdapter(var list:List<QuestionView>, var context: Context): RecyclerView.Adapter<QuestionAdapter.ViewHolder>() {
 
@@ -45,7 +49,15 @@ class QuestionAdapter(var list:List<QuestionView>, var context: Context): Recycl
         holder.questiontypetop.text="#${list[position].type}"
         holder.answerprovided.text=list[position].answers.toString()
         holder.viewsprovided.text=list[position].views.toString()
-        Picasso.get().load(list[position].userimage).transform(CropCircleTransformation()).fit().into(holder.imageholder)
+        val fullname=list[position].userName!!.split(" ")
+        val element1=fullname[0].first().toString().capitalize(Locale.ROOT)
+        val element2=fullname[1].first().toString().capitalize(Locale.ROOT)
+       val initals=element1+element2
+        val drawable=TextDrawable.builder()
+                  .beginConfig()
+                  .endConfig()
+                  .buildRound(initals, MATERIAL.getColor(initals))
+        holder.imageholder.setImageDrawable(drawable)
         holder.username.text=list[position].userName
         holder.likes.text=list[position].likes.toString()
         val questionid=list[position].uid.toString()

@@ -27,22 +27,25 @@ import com.littlemango.stacklayoutmanager.StackLayoutManager
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
 
-class QuestionsFragment:Fragment(R.layout.question_fragment),DataLoadListener {
+class QuestionsFragment:Fragment(R.layout.question_fragment) {
    lateinit var recyleQuestion:RecyclerView
    lateinit var profileimage:ImageView
    lateinit var questionViewModel: QuestionViewModel
     lateinit var questionAdapter: QuestionAdapter
+    private val questionViews = ArrayList<QuestionView>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        loadinitials(view)
+        loadquestions()
+    }
+
+    private fun loadinitials(view: View) {
         val firebaseAuth=FirebaseAuth.getInstance()
         recyleQuestion=view.findViewById(R.id.recyler_question)
         recyleQuestion.hasFixedSize()
         val stackLayoutManager=StackLayoutManager(StackLayoutManager.ScrollOrientation.TOP_TO_BOTTOM,3)
         recyleQuestion.layoutManager=stackLayoutManager
-        questionViewModel=ViewModelProvider(requireActivity()).get(QuestionViewModel::class.java)
-        questionViewModel.init(requireActivity())
-        questionAdapter= QuestionAdapter(questionViewModel.getquestion().value!!,requireContext())
-        recyleQuestion.adapter=questionAdapter
+        questionAdapter= QuestionAdapter(questionViews,requireContext())
         profileimage=view.findViewById(R.id.profileimageview)
         if (firebaseAuth.currentUser!=null){
             Picasso.get().load(firebaseAuth.currentUser!!.photoUrl).transform(CropCircleTransformation()).fit().into(profileimage)
@@ -55,13 +58,25 @@ class QuestionsFragment:Fragment(R.layout.question_fragment),DataLoadListener {
             startActivity(intent)
         }
     }
+    fun loadquestions() {
+        val firebase = FirebaseDatabase.getInstance().reference.child("Question").orderByChild("time").limitToLast(100)
+        firebase.keepSynced(true)
+        firebase.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                questionViews.clear()
+                for (dataSnapshot in snapshot.children) {
+                    for (dataSnapshot1 in dataSnapshot.children) {
+                        val questionView = dataSnapshot1.getValue(QuestionView::class.java)
+                        questionViews.add(questionView!!)
+                    }
 
-    override fun onQuestionLoaded() {
-        questionViewModel.getquestion().observe(this,object :Observer<ArrayList<QuestionView>>{
-            override fun onChanged(t: ArrayList<QuestionView>?) {
-                questionAdapter.notifyDataSetChanged()
+                    recyleQuestion.adapter=questionAdapter
+                    questionAdapter.notifyDataSetChanged()
+                }
             }
+
+            override fun onCancelled(error: DatabaseError) {}
         })
-    }
+}
 
 }

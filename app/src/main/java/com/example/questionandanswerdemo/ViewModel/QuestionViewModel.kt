@@ -12,7 +12,7 @@ import com.example.questionandanswerdemo.ViewDetails.QuestionView
 class QuestionViewModel: ViewModel() {
     lateinit var lists: MutableLiveData<ArrayList<QuestionView>>
     fun init(context: Context) {
-        lists= FirebaseRepo2().getInstance(context).question
+        lists= FirebaseRepo2().getInstance(context)!!.question()
     }
     public fun getquestion():LiveData<ArrayList<QuestionView>>{
         return lists

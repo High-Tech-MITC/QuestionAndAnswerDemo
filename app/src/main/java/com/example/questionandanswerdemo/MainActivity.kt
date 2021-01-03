@@ -9,6 +9,7 @@ import androidx.navigation.ui.NavigationUI
 import com.example.questionandanswerdemo.DataLoad.DataLoadListener
 import com.example.questionandanswerdemo.Dialogs.AskQuestionDialog
 import com.example.questionandanswerdemo.Fragments.CustomSignupActivity
+import com.example.questionandanswerdemo.HelperClass.ConnectionCheck
 import com.facebook.FacebookSdk
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -20,7 +21,6 @@ import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity(),DataLoadListener {
     lateinit var firbaseauth:FirebaseAuth
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -30,15 +30,16 @@ class MainActivity : AppCompatActivity(),DataLoadListener {
         BottomNavigation.background = null
         BottomNavigation.menu.getItem(2).isEnabled = false
         NavigationUI.setupWithNavController(BottomNavigation, navController)
-
         val fabicon:FloatingActionButton=findViewById(R.id.addquestion)
         fabicon.setOnClickListener {
             if (FirebaseAuth.getInstance().currentUser==null){
                 val dialog= CustomSignupActivity()
                 dialog.show(supportFragmentManager,"SIGNUP")
 
-            }else{
+            }else if(ConnectionCheck(this).networkconnectivity()){
                 AddNewquestion()
+            }else{
+                Toast.makeText(this,"NO Connection",Toast.LENGTH_SHORT).show()
             }
         }
         navController.addOnDestinationChangedListener { controller, destination, arguments ->

@@ -67,8 +67,6 @@
 <androidx.recyclerview.widget.RecyclerView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:reverseLayout="true"
-    app:stackFromEnd="true"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toBottomOf="@id/helper1"
@@ -77,5 +75,7 @@
     android:layout_marginEnd="12dp"
     android:id="@+id/recyler_question"
     android:layout_marginBottom="50dp"
+    app:reverseLayout="true"
+    app:stackFromEnd="true"
     />
 </LinearLayout>

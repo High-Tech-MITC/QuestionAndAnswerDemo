@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Answer Body"
+        android:text="Answer"
         android:textColor="@color/black"
         android:textSize="23sp"
         android:layout_margin="5dp"/>
@@ -27,10 +27,10 @@
         android:layout_gravity="center_horizontal" />
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         style="@style/answerStyle"
-        android:lines="6"
         android:paddingLeft="5dp"
+        android:paddingStart="12dp"
         android:ellipsize="end"
         android:hint="answer here"
         android:id="@+id/answer_provingbox"
@@ -40,7 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="8dp"
-        android:text="Add Question"
+        style="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+        android:text="@string/add_your_answer"
         android:textColor="@color/black"
         android:id="@+id/answeradd1"
         />

@@ -17,5 +17,6 @@
     <string name="swipe_up_down_to_check_more">swipe up/down to check more</string>
     <string name="facebookName">profile name</string>
     <string name="facebookUid">user id</string>
+    <string name="add_your_answer">Add Your Answer</string>
 
 </resources>

@@ -58,7 +58,7 @@ android:padding="18dp"    android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal" />
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="@drawable/questionboxshape"
         style="@style/questionStyle"
         android:layout_margin="10dp"
